@@ -27,6 +27,11 @@ const promptUser = () => {
     },
   ]);
 };
+function end() {
+  console.log("Thank you for using Employee Tracker!");
+  db.end();
+  process.exit();
+}
 // initializing the application
 function init() {
   promptUser().then((data) => {
@@ -53,7 +58,7 @@ function init() {
         updateEmployee();
         break;
       default:
-        console.log("finish");
+        end();
     }
   });
 }
